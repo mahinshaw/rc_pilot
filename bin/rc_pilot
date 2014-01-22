@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require 'rc_pilot'
 
-RcPilot::Cli::Application.start(ARGV)
+RcPilot::Cli.start(ARGV)
