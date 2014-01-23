@@ -1,6 +1,7 @@
 repository: https://github.com/mahinshaw/dotfiles.git
-folder: .dotsamples
+folder: .rcfiles
 
 # Here we will load any dependencies that may be needed for the doftiles, ie prezto or oh-my-zsh. Currently must be a git repo.
 dependencies: 
 - https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
