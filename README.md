@@ -1,4 +1,5 @@
 # RcPilot
+[![Build Status](https://travis-ci.org/mahinshaw/rc_pilot.png?branch=master)](https://travis-ci.org/mahinshaw/rc_pilot)
 
 RcPilot is inspired by Thoughtbot's [rcm](https://github.com/thoughtbot/rcm).  Moving dotfiles isn't really that hard, but it would be nice to automate that process, including the source management.  That is the purpose of RcPilot.
 
