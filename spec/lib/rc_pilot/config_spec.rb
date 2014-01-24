@@ -5,12 +5,17 @@ describe RcPilot::Config do
     @home = ENV["HOME"]
     @no_yaml = RcPilot::Config.new
     @yaml = RcPilot::Config.new("spec/fixtures/test_config.yaml")
+    @new_home = RcPilot::Config.new("spec/fixtures/test_config.yaml", "#{@home}/test")
   end
 
   describe "home should be $HOME" do
     it "has proper home default" do
       @no_yaml.home.should eql @home
       @yaml.home.should eql @home
+    end
+
+    it "has new home" do
+      @new_home.home.should_not eql @home
     end
   end
 
