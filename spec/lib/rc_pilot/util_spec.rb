@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe RcPilot::Util do
   let (:util) { Class.new.extend(RcPilot::Util) }
+  let (:home) { ENV["HOME"] }
 
   before do
   end
@@ -13,7 +14,7 @@ describe RcPilot::Util do
   # TODO: make sure the repo is initialized and ithe proper path. Test with default path and passed path.
   describe "#init" do
     it "returns the proper path" do
-      util.init.should eql "/Users/mark/.dotfiles"
+      util.init.should eql "#{home}/.dotfiles"
     end
   end
 
