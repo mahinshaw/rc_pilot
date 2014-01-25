@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'rugged'
 
 module RcPilot
   module Util
@@ -11,8 +12,9 @@ module RcPilot
     end
 
     def init(path=nil)
-      path ||= "#{ENV["HOME"]}/.dotfiles"
-      Repo.new(path)
+      path ||= "#{@@home}/.dotfiles"
+      return path
+      # Repo.new(path)
     end
 
     # File helper utilities

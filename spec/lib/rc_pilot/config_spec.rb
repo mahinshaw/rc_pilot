@@ -38,4 +38,14 @@ describe RcPilot::Config do
       @yaml.repository.should eql "https://github.com/mahinshaw/dotfiles.git"
     end
   end
+
+  describe "#dependencies" do
+    it "has no dependencies" do
+      @no_yaml.dependencies.should eql nil
+    end
+
+    it "configuration has dependencies" do
+      @yaml.dependencies.size.should eql 3
+    end
+  end
 end
