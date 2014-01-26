@@ -1,9 +1,16 @@
 repository: https://github.com/mahinshaw/dotfiles.git
-folder: .rcfiles
+folder: .rcfiles.test
+# home:  TODO: consider this for an alias for normal home directory.  May be better than using it as a passed value.
+# environment: TODO: Add support for multiple environment setups. OSX/Linux. This in intended for install setups specific to an environment. Like tags in rcm.
 
 # Here we will load any dependencies that may be needed for the doftiles, ie prezto or oh-my-zsh. Currently must be a git repo.
-dependencies: 
+# Dependencies should be run before everything else.
+dependencies:
   - One Dependency
   - Two Dependency
   - Three Dependency
-
+  # TODO: test this layout so that there is a better definition for dependencies.
+  # -
+  #   source: this should be the github location. This could also be a brew or curl/wget call.
+  #   dir/folder: the location to install this dependency. If there is none, install to home and use the name of the repo.
+  #   script: The script to install this dependency.
