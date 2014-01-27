@@ -25,7 +25,7 @@ describe RcPilot::Config do
     end
 
     it "should return passed path" do
-      @yaml.path.should eql "#{@home}/.rcfiles"
+      @yaml.path.should eql "#{@home}/.rcfiles.test"
     end
   end
 
