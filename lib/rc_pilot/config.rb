@@ -4,13 +4,13 @@ module RcPilot
     attr_reader :home, :folder
 
     def initialize(file=nil)
-        @configuration = file ? YAML.load(File.open file) : nil
-        @home = @configuration ? @configuration["home"] : ENV["HOME"]
-        @folder = @configuration ? @configuration["folder"] : ".dotfiles"
+      @configuration = file ? YAML.load(ERB.new(File.read(file)).result) : nil
+      @home = @configuration ? @configuration["home"] : ENV["HOME"]
+      @folder = @configuration ? @configuration["folder"] : ".dotfiles"
     end
 
     def path
-        return "#{@home}/#{@folder}"
+      return "#{@home}/#{@folder}"
     end
 
     def repository

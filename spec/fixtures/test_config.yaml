@@ -1,6 +1,6 @@
 repository: https://github.com/mahinshaw/dotfiles.git
 folder: .rcfiles.test
-home: /Users/mark/rcTest
+home: <%= ENV["HOME"] %>/rcTest
 # environment: TODO: Add support for multiple environment setups. OSX/Linux. This in intended for install setups specific to an environment. Like tags in rcm.
 # pre: TODO: Add support for pre commands.  Either a command or a file.
 # post: TODO: Add support for post commands. Either a command or a file.

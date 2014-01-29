@@ -2,6 +2,7 @@ require "thor"
 require "yaml"
 require "fileutils"
 require "open3"
+require "erb"
 
 require "rc_pilot/version"
 require "rc_pilot/util"
