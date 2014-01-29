@@ -1,41 +1,24 @@
-require 'yaml'
-
 module RcPilot
   attr_reader :configuration
   class Config
-    attr_reader :home
+    attr_reader :home, :folder
 
-    def initialize(file=false, home=ENV["HOME"])
-      @home = home
-      if file
-        @configuration = YAML.load(File.open file)
-      else
-        @configuration = nil
-      end
+    def initialize(file=nil)
+        @configuration = file ? YAML.load(File.open file) : nil
+        @home = @configuration ? @configuration["home"] : ENV["HOME"]
+        @folder = @configuration ? @configuration["folder"] : ".dotfiles"
     end
 
     def path
-      if @configuration
-        return @path = "#{@home}/#{@configuration["folder"]}"
-      else
-        return @path = "#{@home}/.dotfiles"
-      end
+        return "#{@home}/#{@folder}"
     end
 
     def repository
-      if @configuration
-        @repository = @configuration["repository"] || @configuration["repo"]
-      else
-        @repository = nil
-      end
+      return @configuration ? @configuration["repository"] : nil
     end
 
     def dependencies
-      if @configuration
-        @dependencies = @configuration["dependencies"]
-      else
-        @dependencies = nil
-      end
+      return @configuration ? @configuration["dependencies"] : nil
     end
   end
 end

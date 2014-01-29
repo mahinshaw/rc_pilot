@@ -1,5 +1,3 @@
-require 'thor'
-
 module RcPilot
   class Cli < Thor
     include RcPilot::Util

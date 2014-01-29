@@ -1,14 +1,21 @@
 repository: https://github.com/mahinshaw/dotfiles.git
 folder: .rcfiles.test
-# home:  TODO: consider this for an alias for normal home directory.  May be better than using it as a passed value.
+home: /Users/mark/rcTest
 # environment: TODO: Add support for multiple environment setups. OSX/Linux. This in intended for install setups specific to an environment. Like tags in rcm.
+# pre: TODO: Add support for pre commands.  Either a command or a file.
+# post: TODO: Add support for post commands. Either a command or a file.
 
 # Here we will load any dependencies that may be needed for the doftiles, ie prezto or oh-my-zsh. Currently must be a git repo.
 # Dependencies should be run before everything else.
 dependencies:
-  - One Dependency
-  - Two Dependency
-  - Three Dependency
+  - {
+      source: 'https://github.com/sorin-ionescu/prezto.git',
+      folder: '.zprezto'
+    }
+  - {
+      source: 'https://github.com/Shougo/neobundle.vim',
+      folder: '.vim/bundle/neobundle.vim'
+    }
   # TODO: test this layout so that there is a better definition for dependencies.
   # -
   #   source: this should be the github location. This could also be a brew or curl/wget call.
