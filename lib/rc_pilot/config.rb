@@ -3,10 +3,9 @@ module RcPilot
   class Config
     attr_reader :home, :folder
 
-    def initialize(file=nil)
+    def initialize(file = nil)
       @configuration = file ? YAML.load(ERB.new(File.read(file)).result) : nil
-      @home = @configuration ? @configuration["home"] : ENV["HOME"]
-      @folder = @configuration ? @configuration["folder"] : ".dotfiles"
+      get_home_folder
     end
 
     def path
@@ -20,5 +19,19 @@ module RcPilot
     def dependencies
       return @configuration ? @configuration["dependencies"] : nil
     end
+
+    private
+
+    # set the default home and folder even if there is no yaml
+    def get_home_folder
+      @home   = ENV["HOME"]
+      @folder = ".dotfiles"
+
+      if @configuration
+        @home   = @configuration["home"]   if @configuration["home"]
+        @folder = @configuration["folder"] if @configuration["folder"]
+      end
+    end
+
   end
 end

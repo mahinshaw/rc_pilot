@@ -3,6 +3,8 @@ require "yaml"
 require "fileutils"
 require "open3"
 require "erb"
+require "pry"
+require "pry-debugger"
 
 require "rc_pilot/version"
 require "rc_pilot/util"

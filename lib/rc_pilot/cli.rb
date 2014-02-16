@@ -4,17 +4,21 @@ module RcPilot
 
     def initialize(*args)
       super
-      @config = RcPilot::Config.new("#{File.dirname(__FILE__)}/assets/sample_config.yaml")
+      # binding.pry
+      # file = "#{Dir.pwd}/lib/rc_pilot/assets/sample_config.yaml"
+      # @config = RcPilot::Config.new(file)
     end
 
     desc 'install', 'Link rc files into the $HOME directory.'
-    def install(url=nil)
+    def install(url, destination="#{ENV["HOME"]}/.dotfiles")
       # The install should look for any dependencied prescribed by the user - ie Prezto or Oh-my-zsh
       # Then the install should pull from the prescribed repository in the Config file(?).
       # Finally it should create symlinks for all of the prescribed rc files.
+      clone(url, destination)
+      binding.pry
+      home ||= @config.path
+      # Dir.foreach(home) { |f| link(f, home) unless f=='.' or f=='..' }
       puts "Get them dotfiles!"
-      puts @config.path
-      Dir.foreach(@config.path) { |f| link(f) unless f=='.' or f=='..' }
     end
 
     desc 'remove', 'Unlink all of the rc files.'

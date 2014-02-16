@@ -9,8 +9,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 ]
 SimpleCov.start
 
-require "test_construct/rspec_integration"
+require "test_construct"
 require "rc_pilot"
+
+RSpec.configure do |config|
+  config.include TestConstruct::Helpers
+end
 
 # Thanks to minitest
 def capture_io
