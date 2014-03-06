@@ -9,13 +9,14 @@ home: <%= ENV["HOME"] %>/rcTest
 # Dependencies should be run before everything else.
 dependencies:
   - {
-      source: 'https://github.com/sorin-ionescu/prezto.git',
-      folder: '.zprezto'
+    source: 'https://github.com/sorin-ionescu/prezto.git',
+    folder: '.zprezto'
     }
   - {
-      source: 'https://github.com/Shougo/neobundle.vim',
-      folder: '.vim/bundle/neobundle.vim'
+    source: 'https://github.com/Shougo/neobundle.vim',
+    folder: '.vim/bundle/neobundle.vim'
     }
+
   # TODO: test this layout so that there is a better definition for dependencies.
   # -
   #   source: this should be the github location. This could also be a brew or curl/wget call.

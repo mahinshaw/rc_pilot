@@ -37,7 +37,7 @@ module RcPilot
       end
 
       # returns an array of possible rc files
-      def get_config_file(dir)
+      def find_config_file(dir)
         # allow for .rcpilot(.yaml) or .rcprc(.yaml)
         possible_rc = [ ".rcpilot", ".rcprc" ]
         home = ENV["HOME"]
@@ -50,7 +50,15 @@ module RcPilot
           end
         end
 
+        unless rcs.empty?
+        end
+
         return rcs
+      end
+
+      private
+
+      def possible_rc(dir)
       end
     end
 

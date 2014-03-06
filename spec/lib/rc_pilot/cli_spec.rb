@@ -3,9 +3,8 @@ require "spec_helper"
 describe RcPilot::Cli do
   let(:cli) { RcPilot::Cli }
   let(:path) { create_construct }
-  after { home.destroy! }
-
   let(:home) { path.directory "home" }
+  after { home.destroy! }
 
   before :each do
     ARGV.clear
@@ -20,8 +19,12 @@ describe RcPilot::Cli do
 
   # try out test_construct
   describe "#install", test_construct: true do
+    before do
+      ARGV.replace(["install", "https://github.com/mahinshaw/dotfiles"])
+    end
+
     it "should write to console" do
-      out, err = capture_io { cli.start ["install"] }
+      out, err = capture_io { cli.start }
       expect(out).to eq("Get them dotfiles!\n")
       puts home
     end

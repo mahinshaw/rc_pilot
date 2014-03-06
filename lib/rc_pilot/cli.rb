@@ -15,8 +15,7 @@ module RcPilot
       # Then the install should pull from the prescribed repository in the Config file(?).
       # Finally it should create symlinks for all of the prescribed rc files.
       clone(url, destination)
-      binding.pry
-      home ||= @config.path
+      # home ||= @config.path
       # Dir.foreach(home) { |f| link(f, home) unless f=='.' or f=='..' }
       puts "Get them dotfiles!"
     end
